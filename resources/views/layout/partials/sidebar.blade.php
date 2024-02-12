@@ -13,7 +13,7 @@
           <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">{{ Auth::user()->name }}</a>
         </div>
       </div>
 
@@ -63,14 +63,16 @@
               </li>
             </ul>
           </li>
+          @if(Auth::user()->level === "admin")
           <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <a href="{{ route('user-index') }}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 User
               </p>
             </a>
           </li>
+          @endif
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

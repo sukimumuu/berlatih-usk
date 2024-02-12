@@ -10,6 +10,7 @@ class AuthController extends Controller
     public function login(){
         return view('auth.login');
     }
+    
     public function check(Request $req){
         if(Auth::attempt($req->only('email','password'))){
             return redirect()->route('product-index')->with('success', 'Berhasil Login');
